@@ -1,0 +1,19 @@
+.weather {
+    font-family: sans-serif;
+    color: #333;
+  }
+  
+  .weather h1 {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+  
+  .weather p {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  .weather .icon {
+    font-size: 3rem;
+  }
+  
