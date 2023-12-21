@@ -21,7 +21,9 @@ Getting Started
 
 1. Clone this repository:
 
-2. Install dependencies:
+   https://github.com/invidias-codem/weather-app.git
+
+3. Install dependencies:
 
 cd weather-app
 npm install
