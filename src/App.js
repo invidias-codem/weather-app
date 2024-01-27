@@ -1,8 +1,8 @@
-import './App.css';
-import Weather from './components/Weather';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import axios from 'axios';
+// import Weather from './components/Weather';
+
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -26,7 +26,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="app">
-        
+        {/* <Weather /> */}
         <div className="search">
           <input
             value={location}
@@ -70,12 +70,13 @@ const App = () => {
             </div>
           )}
         </div>
-        <Weather />
+        
       </div>
     </QueryClientProvider>
   );
 };
 
 export default App;
+
 
 

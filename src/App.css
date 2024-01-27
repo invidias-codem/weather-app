@@ -37,41 +37,73 @@
   }
 }
 .app {
-  font-family: sans-serif;
-  margin: 0 auto;
-  width: 500px;
+  margin: 40px auto; /* Add top and bottom margin for spacing */
+  max-width: 500px; /* Use max-width for responsiveness */
+  border-radius: 5px; /* Add rounded corners for visual appeal */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  padding: 20px; /* Add padding for content spacing */
 }
 
-.search {
-  margin-bottom: 10px;
-}
-
-.container {
-  padding: 10px;
-}
-
-.top {
+/* Center elements on the webpage */
+body {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  min-height: 100vh; /* Ensure full viewport height */
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+/* Search bar */
+.search {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search input {
+  border: 1px solid #ccc; /* Add a border to the input field */
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/* Gradient button */
+.search button {
+  background: linear-gradient(to right, #007bff, #0062cc); /* Add gradient */
+  /* ... (other button styles) */
+}
+
+/* Gradient container */
+.container {
+  /* ... (existing styles) */
+  background: linear-gradient(to right, #f0f0f0, #e0e0e0); /* Add gradient */
+  padding: 20px; /* Add padding for visual appeal */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+/* Top section */
+.top {
+  margin-bottom: 20px;
 }
 
 .location {
-  font-size: 24px;
+  font-weight: bold; /* Make the location text bold */
 }
 
 .temp {
-  font-size: 36px;
+  font-size: 48px; /* Increase font size for emphasis */
+  margin-bottom: 5px;
 }
 
 .description {
-  font-size: 18px;
+  color: #666; /* Use a lighter color for the description */
 }
 
+/* Bottom section */
 .bottom {
+  position: relative;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .feels,
@@ -80,18 +112,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px 15px;
 }
 
 .feels p,
 .humidity p,
 .wind p {
-  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .feels .bold,
 .humidity .bold,
 .wind .bold {
-  font-size: 24px;
+  font-weight: 700; /* Use font-weight instead of separate class */
+}
+
+/* Icons (if applicable) */
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
 }
 
 
