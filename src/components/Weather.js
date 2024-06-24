@@ -1,59 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { useQueryClient } from 'react-query';
-import axios from 'axios';
+import React from "react";
 
-const commonLocations = ['London', 'New York', 'Paris', 'Tokyo'];
-
-const Weather = () => {
-  const queryClient = useQueryClient();
-  const [selectedLocation] = useState('');
-
-  useEffect(() => {
-    // Prefetch data for common locations (if not already cached)
-    queryClient.refetchQueries(
-      commonLocations.map((city) => ['weather', city]),
-      () => Promise.all(
-        commonLocations.map((city) =>
-          axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`
-          )
-        )
-      )
-    );
-  }, []);
-
-  const { isLoading, error, data } = queryClient.useQuery(
-    ['weather', selectedLocation],
-    async () => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${selectedLocation}&units=imperial&appid=YOUR_API_KEY`
-      );
-      return response.data;
-    },
-    {
-      enabled: !!selectedLocation, // Only fetch for non-empty locations
-      cacheTime: 60000, // Cache results for 1 minute
-    }
-  );
-
+const Weather = ({ data }) => {
   return (
-    <div className='weather'>
-      {isLoading ? (
-        <div>Loading weather data...</div>
-      ) : error ? (
-        <div>Error: {error.message}</div>
+    <div className="weather">
+      {data?.name ? (
+        <>
+          <h2>Weather in {data.name}</h2>
+          {/* ... other weather information ... */}
+
+          {data.alerts && data.alerts.length > 0 ? (
+            <div className="alerts">
+              <h3>Active Weather Alerts:</h3>
+              <ul className="alert-list">
+                {data.alerts.map((alert) => (
+                  <li key={alert.event} className="alert">
+                    <div className="alert-icon">
+                      {/* Display appropriate icon based on alert.event */}
+                    </div>
+                    <div className="alert-info">
+                      <h4 className="alert-title">{alert.event}</h4>
+                      <p className="alert-description">{alert.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <div className="no-alerts">No active weather alerts.</div>
+          )}
+        </>
       ) : (
-        <div>
-          <h1>Weather in {data.name}</h1>
-          <p>Temperature: {data.main.temp}</p>
-          <p>Humidity: {data.main.humidity}</p>
-        </div>
+        <div>Enter a location to see weather data.</div>
       )}
     </div>
   );
 };
 
 export default Weather;
+
+
+
 
 
 

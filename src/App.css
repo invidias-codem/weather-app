@@ -50,7 +50,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Ensure full viewport height */
-  background-color: #f0f0f0; /* Optional background color */
+  background: linear-gradient(to right, #2600ff, #0062cc); /* Add gradient */
 }
 
 /* Search bar */
@@ -69,16 +69,20 @@ body {
 
 /* Gradient button */
 .search button {
-  background: linear-gradient(to right, #007bff, #0062cc); /* Add gradient */
+  background: linear-gradient(to right, #2600ff, #0062cc); /* Add gradient */
   /* ... (other button styles) */
 }
 
 /* Gradient container */
 .container {
-  /* ... (existing styles) */
-  background: linear-gradient(to right, #f0f0f0, #e0e0e0); /* Add gradient */
+  background: linear-gradient(to right, rgba(240, 240, 240, 0.8), rgba(224, 224, 224, 0.8)); /* Semi-transparent base gradient */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjIiIHZpZXdib294PSIwIDAgNiAyIj48ZyBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuNSI+PHrectCB4PSIwIiB5PSIwIiB3aWR0aDYuNSIgaGVpZ2h0PSIyIiByeD0iMS41Ii8+PC9nPjwvc3ZnPg=="); /* Slight noise pattern */
+  background-repeat: repeat; /* Repeat noise pattern */
+   /* Apply blur filter for a soft focus effect */
+ /* Add gradient */
   padding: 20px; /* Add padding for visual appeal */
   border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for contrast */
 }
 
 /* Top section */
